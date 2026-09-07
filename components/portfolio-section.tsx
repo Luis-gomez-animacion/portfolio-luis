@@ -106,6 +106,30 @@ export function PortfolioSection() {
       isBehance: true,
     },
     {
+      title: "Motion 3D - Openshow Fuxia",
+      description:
+        "Pieza de apertura en animación 3D para show en vivo. Diseño y animación de elementos gráficos tridimensionales con paleta fucsia, pensada para generar impacto visual en el arranque del evento.",
+      tag: "Animación 3D / Motion Design",
+      role: "Animador 3D / Motion Designer",
+      tools: ["Blender", "After Effects"],
+      year: "2026",
+      bgColor: "bg-[#D6249F]",
+      link: "https://www.behance.net/luisanimador",
+      video: "/videos/motion3d-openshow.mp4",
+    },
+    {
+      title: "Motion 3D - Vertical Fuxia",
+      description:
+        "Animación 3D en formato vertical pensada para pantallas y redes sociales. Movimiento de cámara y elementos gráficos en clave fucsia, con foco en composición para consumo mobile.",
+      tag: "Animación 3D / Motion Design",
+      role: "Animador 3D / Motion Designer",
+      tools: ["Blender", "After Effects"],
+      year: "2026",
+      bgColor: "bg-[#D6249F]",
+      link: "https://www.behance.net/luisanimador",
+      video: "/videos/motion3d-vertical.mp4",
+    },
+    {
       title: "Cortometraje Pulcro",
       description:
         "Guion, direccion y produccion de cortometraje. Desarrollo integral del proyecto audiovisual desde la conceptualizacion hasta la postproduccion final. Trabajo de direccion de actores y fotografia cinematografica.",
