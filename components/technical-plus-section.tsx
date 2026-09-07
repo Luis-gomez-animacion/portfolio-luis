@@ -55,9 +55,9 @@ export function TechnicalPlusSection() {
             {technicalSkills.map((skill, index) => (
               <div
                 key={index}
-                className="bg-[#161616] border border-gray-800 rounded-2xl p-6 hover:border-[#6366F1]/50 transition-all duration-300 group"
+                className="bg-[#161616] border border-gray-800 rounded-none p-6 hover:border-[#6366F1]/50 transition-all duration-300 group"
               >
-                <div className="w-12 h-12 bg-[#6366F1]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#6366F1]/20 transition-colors">
+                <div className="w-12 h-12 bg-[#6366F1]/10 rounded-none flex items-center justify-center mb-4 group-hover:bg-[#6366F1]/20 transition-colors">
                   <skill.icon className="w-6 h-6 text-[#6366F1]" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">{skill.title}</h3>
@@ -79,9 +79,9 @@ export function TechnicalPlusSection() {
 
           {/* Bottom Note */}
           <div className="mt-10 pt-8 border-t border-gray-800 flex flex-col md:flex-row items-center justify-center gap-4 text-center">
-            <span className="text-gray-500 text-sm">Experiencia en teatros, auditorios y eventos de gran escala</span>
-            <span className="hidden md:block text-gray-700">•</span>
-            <span className="text-gray-500 text-sm">
+            <span className="text-muted-foreground text-sm">Experiencia en teatros, auditorios y eventos de gran escala</span>
+            <span className="hidden md:block text-muted-foreground">•</span>
+            <span className="text-muted-foreground text-sm">
               Disponible para proyectos que combinen lo digital con lo escénico
             </span>
           </div>

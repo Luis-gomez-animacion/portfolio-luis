@@ -3,17 +3,18 @@ import type { Metadata } from "next"
 
 import "./globals.css"
 
-import { Onest, Geist_Mono as V0_Font_Geist_Mono } from "next/font/google"
+import { Anton, Space_Mono } from "next/font/google"
 
-const _geistMono = V0_Font_Geist_Mono({
+const anton = Anton({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  weight: ["400"],
+  variable: "--font-display",
 })
 
-const onest = Onest({
+const spaceMono = Space_Mono({
   subsets: ["latin"],
-  weight: ["500", "700"],
-  variable: "--font-onest",
+  weight: ["400", "700"],
+  variable: "--font-mono-body",
 })
 
 export const metadata: Metadata = {
@@ -30,7 +31,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${onest.variable} font-sans antialiased overflow-x-hidden`}>{children}</body>
+      <body className={`${anton.variable} ${spaceMono.variable} font-sans antialiased overflow-x-hidden`}>
+        {children}
+      </body>
     </html>
   )
 }

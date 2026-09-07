@@ -22,7 +22,7 @@ export function SketchfabSection() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="bg-white border-[3px] border-black rounded-[32px] overflow-hidden shadow-[8px_8px_0px_0px_rgba(99,102,241,1)]">
+            <div className="bg-card border-2 border-foreground rounded-none overflow-hidden shadow-[8px_8px_0px_0px_var(--brutal-magenta)]">
               <div className="aspect-square w-full">
                 <iframe
                   title="Axe Stylizate"
@@ -62,7 +62,7 @@ export function SketchfabSection() {
                 href="https://sketchfab.com/Luishigomez.space"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#6366F1] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#6366F1]/90 transition-colors"
+                className="inline-flex items-center gap-2 bg-[#6366F1] text-white px-6 py-3 rounded-none font-semibold hover:bg-[#6366F1]/90 transition-colors"
               >
                 <Cuboid className="w-5 h-5" />
                 Ver mas en Sketchfab

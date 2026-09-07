@@ -94,14 +94,14 @@ export function ContactSection() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             ¿Listo para <span className="bg-[#6366F1] text-white px-3 py-1 inline-block">trabajar juntos?</span>
           </h2>
-          <p className="text-[#393939] text-base md:text-lg font-medium leading-relaxed max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-base md:text-lg font-medium leading-relaxed max-w-2xl mx-auto">
             Contactame por el medio que prefieras. Estoy disponible para proyectos freelance, colaboraciones y
             oportunidades laborales.
           </p>
         </div>
 
-        <div className="bg-white border-[3px] border-black rounded-[32px] p-6 md:p-10 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-          <h3 className="text-xl font-bold text-[#0B0B0B] mb-6">Contacto directo</h3>
+        <div className="bg-card border-2 border-foreground rounded-none p-6 md:p-10 shadow-[8px_8px_0px_0px_var(--brutal-lime)]">
+          <h3 className="text-xl font-bold text-foreground mb-6">Contacto directo</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
             {contactLinks.map((contact) => (
               <a
@@ -109,7 +109,7 @@ export function ContactSection() {
                 href={contact.href}
                 target={contact.href.startsWith("http") ? "_blank" : undefined}
                 rel={contact.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-all hover:scale-[1.02] group"
+                className="flex items-center gap-4 p-4 bg-secondary rounded-none hover:bg-secondary transition-all hover:scale-[1.02] group"
               >
                 <div
                   className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
@@ -118,9 +118,9 @@ export function ContactSection() {
                   <contact.icon className="w-5 h-5 text-white" />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-sm text-gray-500">{contact.name}</p>
+                  <p className="text-sm text-muted-foreground">{contact.name}</p>
                   <p
-                    className="font-bold text-[#0B0B0B] truncate transition-colors"
+                    className="font-bold text-foreground truncate transition-colors"
                     style={{ "--hover-color": contact.color } as React.CSSProperties}
                   >
                     {contact.value}
@@ -131,7 +131,7 @@ export function ContactSection() {
             ))}
           </div>
 
-          <h3 className="text-xl font-bold text-[#0B0B0B] mb-6">Redes y portafolios</h3>
+          <h3 className="text-xl font-bold text-foreground mb-6">Redes y portafolios</h3>
           <div className="flex flex-wrap gap-3 mb-8">
             {socialLinks.map((social) => (
               <a
@@ -139,7 +139,7 @@ export function ContactSection() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-3 rounded-xl border-2 border-gray-200 hover:border-black transition-all hover:scale-[1.02]"
+                className="flex items-center gap-2 px-4 py-3 rounded-none border-2 border-border hover:border-foreground transition-all hover:scale-[1.02]"
                 style={{ "--hover-bg": social.color } as React.CSSProperties}
               >
                 <div
@@ -148,19 +148,19 @@ export function ContactSection() {
                 >
                   {social.icon}
                 </div>
-                <span className="font-semibold text-[#0B0B0B]">{social.name}</span>
+                <span className="font-semibold text-foreground">{social.name}</span>
               </a>
             ))}
           </div>
 
-          <div className="bg-[#0B0B0B] rounded-2xl p-6 md:p-8 text-center">
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-3">¿Tenés un proyecto en mente?</h3>
-            <p className="text-gray-400 mb-6 max-w-md mx-auto">
+          <div className="bg-background border-2 border-brutal-lime rounded-none p-6 md:p-8 text-center">
+            <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">¿Tenés un proyecto en mente?</h3>
+            <p className="text-muted-foreground mb-6 max-w-md mx-auto">
               Escribime directamente y conversemos sobre cómo puedo ayudarte.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button
-                className="bg-[#25D366] text-white hover:bg-[#25D366]/90 rounded-xl py-5 px-8 text-lg font-semibold h-auto"
+                className="bg-[#25D366] text-white hover:bg-[#25D366]/90 rounded-none py-5 px-8 text-lg font-semibold h-auto"
                 asChild
               >
                 <a
@@ -173,7 +173,7 @@ export function ContactSection() {
                 </a>
               </Button>
               <Button
-                className="bg-[#6366F1] text-white hover:bg-[#6366F1]/90 rounded-xl py-5 px-8 text-lg font-semibold h-auto"
+                className="bg-[#6366F1] text-white hover:bg-[#6366F1]/90 rounded-none py-5 px-8 text-lg font-semibold h-auto"
                 asChild
               >
                 <a href="mailto:Luisgomezz2014@gmail.com">

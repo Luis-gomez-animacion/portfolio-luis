@@ -150,7 +150,7 @@ export function PortfolioSection() {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             Mirá mis <br />
-            <span className="bg-[#FFC224] text-black px-3 py-1 inline-block">proyectos destacados</span>
+            <span className="bg-[#FFC224] text-foreground px-3 py-1 inline-block">proyectos destacados</span>
           </h2>
         </div>
 
@@ -158,13 +158,13 @@ export function PortfolioSection() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className={`group grid md:grid-cols-2 bg-white border-[3px] border-black rounded-[32px] overflow-hidden hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all ${
+              className={`group grid md:grid-cols-2 bg-card border-2 border-foreground rounded-none overflow-hidden hover:shadow-[8px_8px_0px_0px_var(--brutal-lime)] transition-all ${
                 project.isYoutube ? "ring-4 ring-red-500 ring-offset-4" : ""
               }`}
             >
-              <div className="p-6 md:p-12 flex flex-col justify-center bg-white">
+              <div className="p-6 md:p-12 flex flex-col justify-center bg-card">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-sm font-bold text-[#393939]">{project.year}</span>
+                  <span className="text-sm font-bold text-muted-foreground">{project.year}</span>
                   {project.stats && (
                     <span className="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
                       <Youtube className="w-3 h-3" />
@@ -177,24 +177,24 @@ export function PortfolioSection() {
                   {project.tag}
                 </span>
 
-                <h3 className="text-xl md:text-[28px] font-bold mb-3 leading-tight md:leading-[40px] text-[#0B0B0B]">
+                <h3 className="text-xl md:text-[28px] font-bold mb-3 leading-tight md:leading-[40px] text-foreground">
                   {project.title}
                 </h3>
 
-                <p className="text-base md:text-[16px] text-[#393939] mb-4 leading-relaxed md:leading-[28px] font-medium">
+                <p className="text-base md:text-[16px] text-muted-foreground mb-4 leading-relaxed md:leading-[28px] font-medium">
                   {project.description}
                 </p>
 
                 <div className="mb-4">
-                  <span className="text-sm font-bold text-[#0B0B0B]">Rol: </span>
-                  <span className="text-sm text-[#393939]">{project.role}</span>
+                  <span className="text-sm font-bold text-foreground">Rol: </span>
+                  <span className="text-sm text-muted-foreground">{project.role}</span>
                 </div>
 
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tools.map((tool, toolIndex) => (
                     <span
                       key={toolIndex}
-                      className="bg-gray-100 text-[#393939] text-xs font-medium px-3 py-1 rounded-full border border-gray-200"
+                      className="bg-secondary text-muted-foreground text-xs font-medium px-3 py-1 rounded-full border border-border"
                     >
                       {tool}
                     </span>
@@ -206,7 +206,7 @@ export function PortfolioSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`flex items-center gap-2 font-semibold hover:gap-3 transition-all text-sm md:text-base ${
-                    project.isYoutube ? "text-red-600 hover:text-red-700" : "text-[#0B0B0B]"
+                    project.isYoutube ? "text-red-600 hover:text-red-700" : "text-foreground"
                   }`}
                 >
                   {project.isYoutube ? "Ver video en YouTube" : "Ver proyecto"}
@@ -218,12 +218,12 @@ export function PortfolioSection() {
                 className={`${project.bgColor} relative overflow-hidden min-h-[250px] md:min-h-[400px] flex items-center justify-center`}
               >
                 {project.isYoutube && (
-                  <div className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg z-10">
+                  <div className="absolute top-4 right-4 bg-card rounded-full p-2 shadow-lg z-10">
                     <Youtube className="w-6 h-6 text-red-600" />
                   </div>
                 )}
                 {project.isBehance && (
-                  <div className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg z-10">
+                  <div className="absolute top-4 right-4 bg-card rounded-full p-2 shadow-lg z-10">
                     <svg className="w-6 h-6 text-[#1769FF]" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14h-8.027c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988h-6.466v-14.967h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zm-3.466-8.988h3.584c2.508 0 2.906-3-.312-3h-3.272v3zm3.391 3h-3.391v3.016h3.341c3.055 0 2.868-3.016.05-3.016z" />
                     </svg>
@@ -264,7 +264,7 @@ export function PortfolioSection() {
             href="https://www.behance.net/luisanimador"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-black text-white px-6 md:px-8 py-4 md:py-5 rounded-[12px] font-semibold hover:bg-gray-900 transition-colors flex items-center justify-center gap-2 w-full sm:w-auto text-sm md:text-base"
+            className="bg-brutal-lime text-[#110f0c] px-6 md:px-8 py-4 md:py-5 rounded-none font-bold border-2 border-foreground hover:bg-brutal-lime/90 transition-colors flex items-center justify-center gap-2 w-full sm:w-auto text-sm md:text-base"
           >
             <ExternalLink className="w-5 h-5" />
             Ver todo en Behance

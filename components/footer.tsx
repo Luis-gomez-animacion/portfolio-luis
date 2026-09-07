@@ -20,18 +20,18 @@ export function Footer() {
                 />
               </div>
 
-              <div className="w-full flex-1 bg-white border-4 border-black rounded-3xl py-4 px-4 md:py-6 md:px-8 flex flex-col md:flex-row items-center gap-4 md:gap-6">
+              <div className="w-full flex-1 bg-card border-4 border-foreground rounded-none py-4 px-4 md:py-6 md:px-8 flex flex-col md:flex-row items-center gap-4 md:gap-6">
                 <div className="flex-1 text-center md:text-left">
-                  <h3 className="text-xl md:text-2xl font-bold text-black">Subscribe to my newsletter</h3>
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground">Subscribe to my newsletter</h3>
                 </div>
 
                 <div className="relative w-full md:w-auto md:min-w-[400px] lg:min-w-[480px]">
                   <Input
                     type="email"
                     placeholder="Enter your email address"
-                    className="border-4 border-black rounded-xl px-4 md:px-6 h-14 md:h-16 pr-32 md:pr-44 text-base md:text-lg placeholder:text-gray-500"
+                    className="border-4 border-foreground rounded-none px-4 md:px-6 h-14 md:h-16 pr-32 md:pr-44 text-base md:text-lg placeholder:text-muted-foreground"
                   />
-                  <Button className="absolute right-2 top-2 bottom-2 bg-black text-white hover:bg-black/90 rounded-[10px] px-6 md:px-10 text-sm md:text-base font-semibold whitespace-nowrap h-auto">
+                  <Button className="absolute right-2 top-2 bottom-2 bg-brutal-lime text-[#110f0c] hover:bg-brutal-lime/90 border-2 border-foreground rounded-none px-6 md:px-10 text-sm md:text-base font-semibold whitespace-nowrap h-auto">
                     Subscribe
                   </Button>
                 </div>

@@ -115,7 +115,7 @@ export function ExperienceSection() {
             </div>
 
             <Button
-              className="bg-white text-black hover:bg-gray-50 rounded-lg py-5 px-8 md:py-[22px] md:px-[62px] text-base md:text-lg font-semibold h-auto w-full sm:w-auto sm:min-w-[240px]"
+              className="bg-card text-foreground hover:bg-secondary rounded-none py-5 px-8 md:py-[22px] md:px-[62px] text-base md:text-lg font-semibold h-auto w-full sm:w-auto sm:min-w-[240px]"
               asChild
             >
               <a href="https://www.linkedin.com/in/luis-gomez" target="_blank" rel="noopener noreferrer">
@@ -129,22 +129,22 @@ export function ExperienceSection() {
             {experiences.map((exp, index) => (
               <div
                 key={index}
-                className={`bg-white border-4 border-black rounded-3xl min-h-[200px] md:min-h-[220px] ${exp.highlight ? "bg-[#6366F1] text-white" : ""}`}
+                className={`bg-card border-4 border-foreground rounded-none min-h-[200px] md:min-h-[220px] ${exp.highlight ? "bg-[#6366F1] text-white" : ""}`}
               >
                 <div className="flex items-center justify-between mb-4 md:mb-6 pt-6 md:pt-8 px-6 md:px-8">
-                  <div className="text-base md:text-[20px] leading-tight md:leading-[34px] font-bold text-[#0B0B0B]">
+                  <div className="text-base md:text-[20px] leading-tight md:leading-[34px] font-bold text-foreground">
                     {exp.period}
                   </div>
                   <div className="bg-[#6366F1] text-white text-xs font-bold px-3 py-1 rounded-full">{exp.company}</div>
                 </div>
 
-                <div className="border-t-[3px] border-black mb-4 md:mb-6"></div>
+                <div className="border-t-[3px] border-foreground mb-4 md:mb-6"></div>
 
                 <div className="px-6 md:px-8 pb-6 md:pb-8">
-                  <h3 className="text-xl md:text-[24px] leading-tight md:leading-[36px] font-bold text-[#0B0B0B] mb-2 md:mb-3">
+                  <h3 className="text-xl md:text-[24px] leading-tight md:leading-[36px] font-bold text-foreground mb-2 md:mb-3">
                     {exp.title}
                   </h3>
-                  <p className="text-[#393939] text-base md:text-[18px] leading-relaxed md:leading-[28px]">
+                  <p className="text-muted-foreground text-base md:text-[18px] leading-relaxed md:leading-[28px]">
                     {exp.description}
                   </p>
                 </div>

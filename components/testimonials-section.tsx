@@ -12,7 +12,7 @@ export function TestimonialsSection() {
             <br />
             about <span className="bg-[#2F81F7] text-white px-3 py-1 inline-block">my work</span>
           </h2>
-          <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto pb-8">
+          <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto pb-8">
             Lacus, adipiscing lectus convallis purus aliquet cursus magnaol montes augue donec cras turpis ultrices
             nulla sed doler.
           </p>
@@ -20,7 +20,7 @@ export function TestimonialsSection() {
 
         <div className="relative max-w-5xl mx-auto">
           <div className="relative">
-            <div className="bg-white border-4 border-black rounded-3xl py-8 md:py-14 px-6 md:px-8 md:pr-72 lg:pr-72">
+            <div className="bg-card border-4 border-foreground rounded-none py-8 md:py-14 px-6 md:px-8 md:pr-72 lg:pr-72">
               <div className="absolute -top-6 md:-top-8 left-6 md:left-8 w-12 h-12 md:w-16 md:h-16">
                 <Image
                   src="/images/633b1c81e34cfb82b85454eb-quote-s.png"
@@ -39,7 +39,7 @@ export function TestimonialsSection() {
 
                 <div>
                   <div className="font-bold text-base md:text-lg">Lily Woods</div>
-                  <div className="text-gray-600 text-sm md:text-base">VP of Design at Google</div>
+                  <div className="text-muted-foreground text-sm md:text-base">VP of Design at Google</div>
                 </div>
               </div>
             </div>
