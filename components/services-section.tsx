@@ -1,15 +1,88 @@
+"use client"
+
 import { Mail } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
+import { useRef } from "react"
+
+type Service = {
+  title: string
+  description: string
+  image: string
+  video?: string
+  href?: string
+}
+
+function ServiceCard({ service }: { service: Service }) {
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const cardClassName =
+    "bg-card border-2 border-foreground rounded-none overflow-hidden hover:translate-y-[-4px] hover:shadow-[8px_8px_0px_0px_var(--brutal-lime)] transition-all duration-300 min-h-[480px] flex flex-col group relative"
+
+  const cardContent = (
+    <>
+      <div
+        className="mb-6 -mx-[3px] -mt-[3px] overflow-hidden relative"
+        onMouseEnter={() => videoRef.current?.play()}
+        onMouseLeave={() => {
+          if (videoRef.current) {
+            videoRef.current.pause()
+            videoRef.current.currentTime = 0
+          }
+        }}
+      >
+        <Image
+          src={service.image || "/placeholder.svg"}
+          alt={service.title}
+          width={382}
+          height={328}
+          className={`w-full h-auto group-hover:scale-110 transition-transform duration-500 ease-out ${
+            service.video ? "group-hover:opacity-0" : ""
+          }`}
+        />
+        {service.video && (
+          <video
+            ref={videoRef}
+            src={service.video}
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          />
+        )}
+      </div>
+      <div className="px-8 pb-8 flex-1 flex flex-col">
+        <h3 className="text-[28px] leading-[40px] font-bold mb-3 text-foreground">{service.title}</h3>
+        <p className="text-[18px] leading-[30px] font-medium text-muted-foreground">{service.description}</p>
+        {service.href && (
+          <span className="mt-4 inline-flex items-center gap-1 text-[16px] font-bold text-[#FF4A60] group-hover:gap-2 transition-all">
+            Ver videos →
+          </span>
+        )}
+      </div>
+    </>
+  )
+
+  if (service.href) {
+    return (
+      <Link href={service.href} className={cardClassName}>
+        {cardContent}
+      </Link>
+    )
+  }
+
+  return <div className={cardClassName}>{cardContent}</div>
+}
 
 export function ServicesSection() {
-  const services = [
+  const services: Service[] = [
     {
       title: "Animación 2D",
       description:
         "Animación de personajes cut-out y frame by frame para explainers, campañas y contenido de marca. Diseño y rigging de personajes con movimientos expresivos y prolijos.",
       image: "/services/animacion-2d.png",
+      video: "/videos/animacion-2d/gomez-luis-parcial1.mp4",
       href: "/servicios/animacion-2d",
     },
     {
@@ -17,12 +90,16 @@ export function ServicesSection() {
       description:
         "Modelado, rigging y animación 3D en Blender. Creación de personajes y dioramas animados para YouTube, VR e instalaciones inmersivas.",
       image: "/services/animacion-3d.png",
+      video: "/videos/motion3d-vertical.mp4",
+      href: "/servicios/animacion-3d",
     },
     {
       title: "Motion Graphics",
       description:
         "Motion graphics y animación de gráficos para redes sociales, publicidad y comunicación de marca. Contenido dinámico que capta la atención.",
       image: "/services/motion-graphics.png",
+      video: "/videos/motion3d-openshow.mp4",
+      href: "/servicios/motion-graphics",
     },
     {
       title: "VFX & Diseño Sonoro",
@@ -35,6 +112,8 @@ export function ServicesSection() {
       description:
         "Edición de video, corrección de color y postproducción en Premiere Pro y DaVinci Resolve. Manejo de proyectos con archivos pesados y entregas en plazos ajustados.",
       image: "/services/edicion-video.png",
+      video: "/videos/postproduccion/secuencia-07.mp4",
+      href: "/servicios/edicion-postproduccion",
     },
   ]
 
@@ -53,47 +132,9 @@ export function ServicesSection() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, index) => {
-              const cardClassName =
-                "bg-card border-2 border-foreground rounded-none overflow-hidden hover:translate-y-[-4px] hover:shadow-[8px_8px_0px_0px_var(--brutal-lime)] transition-all duration-300 min-h-[480px] flex flex-col group relative"
-
-              const cardContent = (
-                <>
-                  <div className="mb-6 -mx-[3px] -mt-[3px] overflow-hidden rounded-t-[29px] relative">
-                    <Image
-                      src={service.image || "/placeholder.svg"}
-                      alt={service.title}
-                      width={382}
-                      height={328}
-                      className="w-full h-auto rounded-t-[29px] group-hover:scale-110 transition-transform duration-500 ease-out"
-                    />
-                  </div>
-                  <div className="px-8 pb-8 flex-1 flex flex-col">
-                    <h3 className="text-[28px] leading-[40px] font-bold mb-3 text-foreground">{service.title}</h3>
-                    <p className="text-[18px] leading-[30px] font-medium text-muted-foreground">{service.description}</p>
-                    {service.href && (
-                      <span className="mt-4 inline-flex items-center gap-1 text-[16px] font-bold text-[#FF4A60]">
-                        Ver videos →
-                      </span>
-                    )}
-                  </div>
-                </>
-              )
-
-              if (service.href) {
-                return (
-                  <Link key={index} href={service.href} className={cardClassName}>
-                    {cardContent}
-                  </Link>
-                )
-              }
-
-              return (
-                <div key={index} className={cardClassName}>
-                  {cardContent}
-                </div>
-              )
-            })}
+            {services.map((service, index) => (
+              <ServiceCard key={index} service={service} />
+            ))}
 
             <div className="bg-[#FFC224] border-2 border-foreground rounded-none p-8 md:p-12 flex flex-col items-center justify-center text-center hover:translate-y-[-4px] transition-transform min-h-[480px] relative shadow-[8px_8px_0px_0px_var(--brutal-lime)]">
               <div className="mb-8">

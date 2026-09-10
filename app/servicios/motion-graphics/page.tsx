@@ -4,34 +4,19 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 
 export const metadata = {
-  title: "Animación 2D - Luis Gómez",
-  description: "Videos de animación 2D cut-out y frame by frame de Luis Gómez.",
+  title: "Motion Graphics - Luis Gómez",
+  description: "Videos de motion graphics de Luis Gómez.",
 }
 
 const videos = [
   {
-    title: "Parcial 1",
-    description: "Pieza de animación 2D realizada por Luis Gómez.",
-    src: "/videos/animacion-2d/gomez-luis-parcial1.mp4",
-  },
-  {
-    title: "Plano 02 - Moho",
-    description: "Animación cut-out de personaje realizada en Moho Pro.",
-    src: "/videos/animacion-2d/plano-02-moho.mp4",
-  },
-  {
-    title: "Montaje 1",
-    description: "Montaje de animación y edición de secuencias.",
-    src: "/videos/animacion-2d/montaje-1.mp4",
-  },
-  {
-    title: "Ilustración animada",
-    description: "Pieza de ilustración animada frame by frame.",
-    src: "/videos/animacion-2d/ilustracion-13.mp4",
+    title: "Openshow Fuxia",
+    description: "Pieza de apertura en animación 3D para show en vivo, con paleta fucsia de alto impacto.",
+    src: "/videos/motion3d-openshow.mp4",
   },
 ]
 
-export default function Animacion2DPage() {
+export default function MotionGraphicsPage() {
   return (
     <main className="min-h-screen bg-background">
       <Navigation />
@@ -49,11 +34,11 @@ export default function Animacion2DPage() {
 
             <div className="mb-12 md:mb-16">
               <h1 className="text-4xl md:text-[52px] md:leading-[60px] mb-4">
-                <span className="bg-[#FF4A60] text-[#110f0c] px-3 py-1 inline-block">Animación 2D</span>
+                <span className="bg-brutal-lime text-[#110f0c] px-3 py-1 inline-block">Motion Graphics</span>
               </h1>
               <p className="text-muted-foreground text-base md:text-lg font-medium leading-relaxed md:leading-[30px] max-w-2xl">
-                Animación de personajes cut-out y frame by frame para explainers, campañas y contenido de marca.
-                Diseño y rigging de personajes con movimientos expresivos y prolijos.
+                Motion graphics y animación de gráficos para redes sociales, publicidad y comunicación de marca.
+                Contenido dinámico que capta la atención.
               </p>
             </div>
 
@@ -85,7 +70,7 @@ export default function Animacion2DPage() {
             <div className="mt-12 bg-[#FFC224] border-2 border-foreground rounded-none p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-[8px_8px_0px_0px_var(--brutal-lime)]">
               <div>
                 <h3 className="text-[24px] leading-[32px] font-bold mb-2 text-[#110f0c]">
-                  ¿Te interesa un proyecto de animación 2D?
+                  ¿Te interesa un proyecto de motion graphics?
                 </h3>
                 <p className="text-[16px] leading-[26px] font-medium text-[#2a251d]">
                   Escribime y hablamos sobre tu idea.

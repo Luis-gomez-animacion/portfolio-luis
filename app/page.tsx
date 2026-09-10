@@ -10,6 +10,7 @@ import { ExperienceSection } from "@/components/experience-section"
 import { TechnicalPlusSection } from "@/components/technical-plus-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
+import { Reveal } from "@/components/reveal"
 
 export default function Home() {
   return (
@@ -17,14 +18,30 @@ export default function Home() {
       <Navigation />
       <HeroSection />
       <LogoMarquee />
-      <StatsSection />
-      <SkillsSection />
-      <AboutSection />
-      <PortfolioSection />
-      <SketchfabSection />
-      <ExperienceSection />
-      <TechnicalPlusSection />
-      <ContactSection />
+      <Reveal>
+        <StatsSection />
+      </Reveal>
+      <Reveal>
+        <SkillsSection />
+      </Reveal>
+      <Reveal>
+        <AboutSection />
+      </Reveal>
+      <Reveal>
+        <PortfolioSection />
+      </Reveal>
+      <Reveal>
+        <SketchfabSection />
+      </Reveal>
+      <Reveal>
+        <ExperienceSection />
+      </Reveal>
+      <Reveal>
+        <TechnicalPlusSection />
+      </Reveal>
+      <Reveal>
+        <ContactSection />
+      </Reveal>
       <Footer />
     </main>
   )
