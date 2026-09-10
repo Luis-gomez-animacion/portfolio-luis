@@ -207,6 +207,27 @@
   box-shadow: 8px 8px 0px 0px var(--brutal-magenta);
 }
 
+/* Scroll reveal: progressive enhancement only.
+   Content is ALWAYS visible by default — the animation only
+   applies in browsers that support scroll-linked animations,
+   and can never hide content permanently. */
+@supports (animation-timeline: view()) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    animation: reveal-in linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 25%;
+  }
+}
+
+@keyframes reveal-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes blink-cursor {
   0%,
   49% {
