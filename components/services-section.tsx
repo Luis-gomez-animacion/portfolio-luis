@@ -1,10 +1,7 @@
-"use client"
-
 import { Mail } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
-import { useRef } from "react"
 
 type Service = {
   title: string
@@ -15,40 +12,28 @@ type Service = {
 }
 
 function ServiceCard({ service }: { service: Service }) {
-  const videoRef = useRef<HTMLVideoElement>(null)
   const cardClassName =
-    "bg-card border-2 border-foreground rounded-none overflow-hidden hover:translate-y-[-4px] hover:shadow-[8px_8px_0px_0px_var(--brutal-lime)] transition-all duration-300 min-h-[480px] flex flex-col group relative"
+    "bg-card border-2 border-foreground rounded-none overflow-hidden hover:translate-y-[-4px] hover:shadow-[8px_8px_0px_0px_var(--brutal-lime)] transition-all duration-300 ease-overshoot min-h-[480px] flex flex-col group relative"
 
   const cardContent = (
     <>
-      <div
-        className="mb-6 -mx-[3px] -mt-[3px] overflow-hidden relative"
-        onMouseEnter={() => videoRef.current?.play()}
-        onMouseLeave={() => {
-          if (videoRef.current) {
-            videoRef.current.pause()
-            videoRef.current.currentTime = 0
-          }
-        }}
-      >
-        <Image
-          src={service.image || "/placeholder.svg"}
-          alt={service.title}
-          width={382}
-          height={328}
-          className={`w-full h-auto group-hover:scale-110 transition-transform duration-500 ease-out ${
-            service.video ? "group-hover:opacity-0" : ""
-          }`}
-        />
-        {service.video && (
+      <div className="mb-6 -mx-[3px] -mt-[3px] overflow-hidden relative aspect-[382/328]">
+        {service.video ? (
           <video
-            ref={videoRef}
             src={service.video}
+            autoPlay
             muted
             loop
             playsInline
             preload="metadata"
-            className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-overshoot"
+          />
+        ) : (
+          <Image
+            src={service.image || "/placeholder.svg"}
+            alt={service.title}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-500 ease-overshoot"
           />
         )}
       </div>
@@ -56,7 +41,7 @@ function ServiceCard({ service }: { service: Service }) {
         <h3 className="text-[28px] leading-[40px] font-bold mb-3 text-foreground">{service.title}</h3>
         <p className="text-[18px] leading-[30px] font-medium text-muted-foreground">{service.description}</p>
         {service.href && (
-          <span className="mt-4 inline-flex items-center gap-1 text-[16px] font-bold text-[#FF4A60] group-hover:gap-2 transition-all">
+          <span className="mt-4 inline-flex items-center gap-1 text-[16px] font-bold text-[#FF4A60] group-hover:gap-2.5 transition-all duration-300 ease-overshoot">
             Ver videos →
           </span>
         )}

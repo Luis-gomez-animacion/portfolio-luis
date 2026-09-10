@@ -158,7 +158,7 @@ export function PortfolioSection() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className={`group grid md:grid-cols-2 bg-card border-2 border-foreground rounded-none overflow-hidden hover:shadow-[8px_8px_0px_0px_var(--brutal-lime)] transition-all ${
+              className={`group grid md:grid-cols-2 bg-card border-2 border-foreground rounded-none overflow-hidden hover:shadow-[8px_8px_0px_0px_var(--brutal-lime)] hover:-translate-y-1 transition-all duration-300 ease-overshoot ${
                 project.isYoutube ? "ring-4 ring-red-500 ring-offset-4" : ""
               }`}
             >
@@ -177,7 +177,7 @@ export function PortfolioSection() {
                   {project.tag}
                 </span>
 
-                <h3 className="text-xl md:text-[28px] font-bold mb-3 leading-tight md:leading-[40px] text-foreground">
+                <h3 className="text-xl md:text-[28px] font-bold mb-3 leading-tight md:leading-[40px] text-foreground transition-transform duration-300 ease-overshoot group-hover:translate-x-1">
                   {project.title}
                 </h3>
 
@@ -205,7 +205,7 @@ export function PortfolioSection() {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center gap-2 font-semibold hover:gap-3 transition-all text-sm md:text-base ${
+                  className={`flex items-center gap-2 font-semibold hover:gap-3 transition-all duration-300 ease-overshoot text-sm md:text-base ${
                     project.isYoutube ? "text-red-600 hover:text-red-700" : "text-foreground"
                   }`}
                 >
@@ -245,13 +245,13 @@ export function PortfolioSection() {
                     loop
                     muted
                     playsInline
-                    className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-500 ease-overshoot group-hover:scale-105"
                   />
                 ) : (
                   <img
                     src={`/.jpg?key=7nk4i&height=400&width=500&query=${encodeURIComponent(project.tag + " animation motion graphics professional work")}`}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-500 ease-overshoot group-hover:scale-105"
                   />
                 )}
               </div>

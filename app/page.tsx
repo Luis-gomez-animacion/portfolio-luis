@@ -11,6 +11,7 @@ import { TechnicalPlusSection } from "@/components/technical-plus-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
 import { Reveal } from "@/components/reveal"
+import { SceneBreak } from "@/components/scene-break"
 
 export default function Home() {
   return (
@@ -24,12 +25,14 @@ export default function Home() {
       <Reveal>
         <SkillsSection />
       </Reveal>
+      <SceneBreak />
       <Reveal>
         <AboutSection />
       </Reveal>
       <Reveal>
         <PortfolioSection />
       </Reveal>
+      <SceneBreak />
       <Reveal>
         <SketchfabSection />
       </Reveal>
@@ -39,6 +42,7 @@ export default function Home() {
       <Reveal>
         <TechnicalPlusSection />
       </Reveal>
+      <SceneBreak />
       <Reveal>
         <ContactSection />
       </Reveal>
