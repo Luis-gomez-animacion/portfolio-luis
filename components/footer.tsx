@@ -112,27 +112,27 @@ export function Footer() {
               <h3 className="font-bold mb-4">Navegación</h3>
               <ul className="space-y-2 text-gray-400 text-sm">
                 <li>
-                  <a href="#inicio" className="hover:text-white transition-colors">
+                  <a href="/#inicio" className="hover:text-white transition-colors">
                     Inicio
                   </a>
                 </li>
                 <li>
-                  <a href="#sobre-mi" className="hover:text-white transition-colors">
+                  <a href="/#sobre-mi" className="hover:text-white transition-colors">
                     Sobre mí
                   </a>
                 </li>
                 <li>
-                  <a href="#proyectos" className="hover:text-white transition-colors">
+                  <a href="/#proyectos" className="hover:text-white transition-colors">
                     Proyectos
                   </a>
                 </li>
                 <li>
-                  <a href="#experiencia" className="hover:text-white transition-colors">
+                  <a href="/#experiencia" className="hover:text-white transition-colors">
                     Experiencia
                   </a>
                 </li>
                 <li>
-                  <a href="#contacto" className="hover:text-white transition-colors">
+                  <a href="/#contacto" className="hover:text-white transition-colors">
                     Contacto
                   </a>
                 </li>
