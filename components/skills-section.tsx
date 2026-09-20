@@ -1,13 +1,48 @@
+"use client"
+
+import { useRef } from "react"
 import { Mail } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
 import { services } from "@/lib/content"
+import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap"
 
 export function SkillsSection() {
+  const root = useRef<HTMLElement>(null)
+
+  useGSAP(
+    () => {
+      const mm = gsap.matchMedia()
+
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        const cards = gsap.utils.toArray<HTMLElement>("[data-card]")
+        gsap.set(cards, { autoAlpha: 0, y: 36 })
+
+        ScrollTrigger.batch(cards, {
+          start: "top 88%",
+          once: true,
+          onEnter: (batch) =>
+            gsap.to(batch, {
+              autoAlpha: 1,
+              y: 0,
+              duration: 0.55,
+              stagger: 0.08,
+              ease: "power4.out",
+              overwrite: true,
+              clearProps: "transform",
+            }),
+        })
+      })
+
+      return () => mm.revert()
+    },
+    { scope: root },
+  )
+
   return (
-    <section id="servicios" className="bg-card py-16 md:py-24">
+    <section ref={root} id="servicios" className="bg-card py-16 md:py-24">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 text-center md:mb-16">
@@ -25,6 +60,7 @@ export function SkillsSection() {
               <Link
                 key={skill.slug}
                 href={`/servicios/${skill.slug}`}
+                data-card
                 className="group flex min-h-[280px] flex-col overflow-hidden rounded-none border-2 border-foreground bg-card transition-all duration-300 hover:translate-y-[-4px] hover:shadow-[8px_8px_0px_0px_var(--brutal-lime)]"
               >
                 <div
@@ -60,7 +96,10 @@ export function SkillsSection() {
               </Link>
             ))}
 
-            <div className="relative flex min-h-[280px] flex-col items-center justify-center rounded-none border-2 border-foreground bg-[#0B0B0B] p-8 text-center shadow-[8px_8px_0px_0px_var(--brutal-magenta)] transition-transform hover:translate-y-[-4px] md:p-10">
+            <div
+              data-card
+              className="relative flex min-h-[280px] flex-col items-center justify-center rounded-none border-2 border-foreground bg-[#0B0B0B] p-8 text-center shadow-[8px_8px_0px_0px_var(--brutal-magenta)] transition-transform hover:translate-y-[-4px] md:p-10"
+            >
               <h3 className="mb-4 text-[24px] leading-[32px] font-bold text-white">¿Tenés un proyecto?</h3>
               <p className="mb-6 text-[16px] leading-[26px] font-medium text-gray-300">
                 Escribime y hagamos realidad tu idea con animación de alto nivel.

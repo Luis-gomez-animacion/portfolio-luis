@@ -4,6 +4,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Footer } from "@/components/footer"
 import { Navigation } from "@/components/navigation"
+import { ServiceMotion } from "@/components/service-motion"
 import { getOtherServices, getServiceProjects, type Project, type Service } from "@/lib/content"
 
 function ProjectMedia({ project }: { project: Project }) {
@@ -44,6 +45,7 @@ function ProjectMedia({ project }: { project: Project }) {
 function ProjectBlock({ project, flip }: { project: Project; flip: boolean }) {
   return (
     <article
+      data-project
       className={`grid overflow-hidden border-2 border-foreground bg-card md:grid-cols-2 ${
         flip ? "hard-shadow-magenta" : "hard-shadow"
       }`}
@@ -124,16 +126,21 @@ export function ServiceView({ service }: { service: Service }) {
       <Navigation />
 
       <section className="container mx-auto px-4 py-10 md:py-16">
+        <ServiceMotion>
         <div className="mx-auto max-w-7xl">
           <Link
             href="/#servicios"
+            data-service-intro
             className="link-underline mb-8 inline-flex items-center gap-2 font-mono text-sm font-bold uppercase tracking-wide hover:text-brutal-lime"
           >
             <ArrowLeft className="h-4 w-4" />
             Volver a servicios
           </Link>
 
-          <div className="mb-10 grid gap-8 border-2 border-foreground bg-card p-6 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:p-10">
+          <div
+            data-service-intro
+            className="mb-10 grid gap-8 border-2 border-foreground bg-card p-6 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:p-10"
+          >
             <div>
               <p className="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">
                 Servicio
@@ -161,7 +168,7 @@ export function ServiceView({ service }: { service: Service }) {
             </div>
           </div>
 
-          <nav aria-label="Otros servicios" className="mb-10 flex flex-wrap gap-2">
+          <nav data-service-intro aria-label="Otros servicios" className="mb-10 flex flex-wrap gap-2">
             {others.map((item) => (
               <Link
                 key={item.slug}
@@ -195,6 +202,7 @@ export function ServiceView({ service }: { service: Service }) {
             </Button>
           </div>
         </div>
+        </ServiceMotion>
       </section>
 
       <Footer />

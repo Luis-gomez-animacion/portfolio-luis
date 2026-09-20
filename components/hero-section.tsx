@@ -1,30 +1,83 @@
+"use client"
+
+import { useRef } from "react"
 import { Mail, Play } from "lucide-react"
+
 import { Button } from "@/components/ui/button"
+import { gsap, SplitText, useGSAP } from "@/lib/gsap"
 
 export function HeroSection() {
+  const root = useRef<HTMLElement>(null)
+
+  useGSAP(
+    () => {
+      const mm = gsap.matchMedia()
+
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        const titles = gsap.utils.toArray<HTMLElement>("[data-hero='title']")
+        const split = SplitText.create(titles, {
+          type: "words",
+          mask: "words",
+          aria: "auto",
+        })
+
+        const tl = gsap.timeline({
+          defaults: { ease: "power4.out", duration: 0.7 },
+        })
+
+        tl.from("[data-hero='sticker']", { autoAlpha: 0, y: 16, duration: 0.45 })
+          .from(split.words, { yPercent: 110, stagger: 0.07, duration: 0.75 }, "-=0.1")
+          .from("[data-hero='copy']", { autoAlpha: 0, y: 18, duration: 0.5 }, "-=0.4")
+          .from("[data-hero='actions']", { autoAlpha: 0, y: 16, duration: 0.45 }, "-=0.3")
+          .from("[data-hero='portrait']", { autoAlpha: 0, x: 36, duration: 0.8 }, 0.15)
+
+        gsap.to("[data-hero='photo']", {
+          y: 36,
+          ease: "none",
+          scrollTrigger: {
+            trigger: root.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: 0.6,
+          },
+        })
+      })
+
+      return () => mm.revert()
+    },
+    { scope: root },
+  )
+
   return (
-    <section id="inicio" className="container mx-auto px-4 py-10 md:py-16">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    <section ref={root} id="inicio" className="container mx-auto px-4 py-10 md:py-16">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-[minmax(0,1fr)_minmax(0,1.25fr)] gap-8 lg:gap-12 items-center">
         <div className="space-y-6">
-          <span className="hero-in hero-in-1 sticker inline-block bg-brutal-lime text-[#110f0c] text-xs md:text-sm font-bold uppercase tracking-widest px-3 py-1 border-2 border-[#110f0c]">
-            Animación 2D / 3D · Motion
-          </span>
+          <div data-hero="sticker" className="inline-block">
+            <span className="sticker inline-block bg-brutal-lime text-[#110f0c] text-xs md:text-sm font-bold uppercase tracking-widest px-3 py-1 border-2 border-[#110f0c]">
+              Animación 2D / 3D · Motion
+            </span>
+          </div>
 
           <h1 className="font-display uppercase text-[44px] leading-[42px] md:text-[84px] md:leading-[78px] tracking-tight">
-            <span className="hero-in hero-in-2 block">Luis Gómez</span>
-            <span className="hero-in hero-in-3 block">
+            <span data-hero="title" className="block">
+              Luis Gómez
+            </span>
+            <span data-hero="title" className="block">
               <span className="text-brutal-lime">Motion</span> &amp;{" "}
               <span className="text-brutal-magenta">3D Designer</span>
             </span>
           </h1>
 
-          <p className="hero-in hero-in-4 text-muted-foreground text-[15px] md:text-[17px] leading-[26px] md:leading-[28px] max-w-xl">
+          <p
+            data-hero="copy"
+            className="text-muted-foreground text-[15px] md:text-[17px] leading-[26px] md:leading-[28px] max-w-xl"
+          >
             Creativo, responsable y rápido. Siempre busco mejorar cada proyecto aportando un plus en cada etapa. Combino
             edición profesional con herramientas de IA para optimizar procesos, resolver problemas de forma práctica y
             entregar resultados claros y de calidad.
           </p>
 
-          <div className="hero-in hero-in-5 flex flex-col sm:flex-row flex-wrap gap-4 pt-4">
+          <div data-hero="actions" className="flex flex-col sm:flex-row flex-wrap gap-4 pt-4">
             <Button
               className="bg-brutal-lime text-[#110f0c] hover:bg-brutal-lime/90 rounded-none border-2 border-foreground py-5 px-8 md:py-[22px] md:px-[52px] text-base md:text-lg font-bold uppercase tracking-wide h-auto w-full sm:w-auto transition-transform duration-300 ease-overshoot hover:scale-[1.03]"
               asChild
@@ -48,12 +101,13 @@ export function HeroSection() {
         </div>
 
         <div className="flex justify-center md:justify-end">
-          <div className="hero-in-side relative w-full max-w-md">
+          <div data-hero="portrait" className="relative w-full">
             <div className="absolute -top-4 -left-4 sticker-r bg-brutal-magenta text-[#110f0c] text-xs font-bold uppercase tracking-widest px-3 py-1 border-2 border-[#110f0c] z-10">
               Buenos Aires, AR
             </div>
             <div className="relative aspect-[4/3] border-4 border-foreground overflow-hidden hard-shadow">
               <img
+                data-hero="photo"
                 src="/images/luis-portrait.png"
                 alt="Luis Gómez, animador y motion designer"
                 className="w-full h-full object-cover grayscale contrast-125"
